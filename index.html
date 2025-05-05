@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feliz Cumpleaños ❤️</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom right, #ffafbd, #ffc3a0);
+      color: #333;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 30px;
+    }
+    .countdown {
+      font-size: 2em;
+      margin-top: 20px;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Cumpleaños, Mi Amor 🎉</h1>
+  <div class="countdown" id="countdown">Cargando cuenta atrás...</div>
+  <p>Gracias por ser la persona más especial de mi vida. Te quiero con todo mi corazón. 💖</p>
+
+  <script>
+    // Fecha objetivo: reemplaza con el día exacto
+    const targetDate = new Date("2025-05-10T00:00:00"); // Año-Mes-Día Hora
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "¡Feliz cumpleaños! 🎂";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
