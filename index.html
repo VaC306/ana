@@ -8,43 +8,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="mensaje-inicial">Prepárate para lo bueno...</div>
-  <h1>Feliz Cumpleaños, Te quiero! 🎉</h1>
-  <div class="countdown" id="countdown">Cargando cuenta atrás...</div>
-  <p>Gracias por ser la persona más especial de mi vida. Te quiero con todo mi corazón. 💖</p>
+
+  <!-- Contenido inicial con mensaje y cuenta atrás -->
+  <div id="contenido-inicial">
+    <div class="mensaje-inicial">Prepárate para lo bueno...</div>
+    <h1>Feliz Cumpleaños, Te quiero! 🎉</h1>
+    <div class="countdown" id="countdown">Cargando cuenta atrás...</div>
+    <p>Gracias por ser la persona más especial de mi vida. Te quiero con todo mi corazón. 💖</p>
+  </div>
+
+  <!-- Contenido oculto que se revelará cuando llegue la fecha -->
+  <div id="contenido-revelado" style="display: none;">
+    <h2>¡Ya es tu día especial! ✨</h2>
+    <p>Aquí empieza la sorpresa... ❤️</p>
+    <!-- Puedes añadir aquí más secciones: galería, carta, vídeo, etc. -->
+  </div>
 
   <!-- Audio de fondo -->
   <audio id="bg-music" loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
-  
-  <button onclick="document.getElementById('bg-music').play()">TU BANDA SONORA</button>
 
-  <script>
-    // Fecha objetivo: reemplaza con el día exacto
-    const targetDate = new Date("2025-05-11T00:00:00"); // Año-Mes-Día Hora
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerText = "¡Feliz cumpleaños! 🎂";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("countdown").innerText =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  <!-- Botón para iniciar la música -->
+  <button>TU BANDA SONORA</button>
 
   <script src="script.js"></script>
 </body>

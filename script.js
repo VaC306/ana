@@ -1,15 +1,29 @@
-// Botón para reproducir música
-document.getElementById("bg-music").volume = 0.6;
-document.getElementById("bg-music").pause();
+// Referencia al audio y botón
+const music = document.getElementById("bg-music");
+const botonMusica = document.querySelector("button");
 
-document.querySelector("button").addEventListener("click", function () {
-  const music = document.getElementById("bg-music");
-  music.play();
-  this.style.display = "none";
+// Configurar audio
+music.volume = 0.6;
+music.pause();
+
+// Texto inicial del botón
+botonMusica.innerText = "▶️ TU BANDA SONORA";
+
+// Al hacer clic, alternar entre play y pause
+botonMusica.addEventListener("click", function () {
+  if (music.paused) {
+    music.play();
+    botonMusica.innerText = "⏸️ Reproduciendo";
+  } else {
+    music.pause();
+    botonMusica.innerText = "▶️ TU BANDA SONORA";
+  }
 });
 
+// Fecha objetivo
 const targetDate = new Date("2025-05-11T00:00:00");
 
+// Obtener texto de cuenta atrás
 function getCountdownText() {
   const now = new Date();
   const diff = targetDate - now;
@@ -26,18 +40,28 @@ function getCountdownText() {
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
+// Mostrar el contador por primera vez
 function firstDisplay() {
   const countdown = document.getElementById("countdown");
   countdown.innerText = getCountdownText();
   countdown.classList.add("animate");
 
-  // Quitar la clase para que no afecte más
   setTimeout(() => {
     countdown.classList.remove("animate");
-  }, 1000);
+  }, 1500);
 }
 
+// Actualizar cada segundo
 function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("contenido-inicial").style.display = "none";
+    document.getElementById("contenido-revelado").style.display = "block";
+    return;
+  }
+
   document.getElementById("countdown").innerText = getCountdownText();
 }
 
