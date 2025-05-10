@@ -29,8 +29,11 @@ function getCountdownText() {
   const diff = targetDate - now;
 
   if (diff <= 0) {
-    return "¡Feliz cumpleaños! 🎂";
-  }
+    // Redirigir automáticamente a cumple.html
+    window.location.href = "cumple.html";
+    return;
+}
+
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feliz Cumpleaños ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cumple-body">
+
+  <div class="felicitacion">
+    <h1>¡Feliz cumpleaños, te quiero muchisimo! 🎉</h1>
+    <p>Espero que te lo pases genial hoy, te lo mereces, cada día me haces mas feliz!</p>
+  </div>
+
+  <div class="galeria">
+    <img src="foto1.jpg" alt="Foto juntos" class="foto">
+    <img src="foto2.jpg" alt="Foto especial" class="foto">
+    <img src="foto3.jpg" alt="Foto bonita" class="foto">
+    <!-- Añade más fotos si quieres -->
+  </div>
+
+  <div class="pregunta-amor">
+  <h2>¿Te ha gustado? 🥺</h2>
+  <div class="botones-amor">
+    <button id="boton-si">si ❤️</button>
+    <button id="boton-no">no 😢</button>
+  </div>
+</div>
+
+<script>
+  const botonNo = document.getElementById("boton-no");
+
+  botonNo.addEventListener("mouseenter", () => {
+    const x = Math.floor(Math.random() * (window.innerWidth - 100));
+    const y = Math.floor(Math.random() * (window.innerHeight - 100));
+    botonNo.style.position = "absolute";
+    botonNo.style.left = `${x}px`;
+    botonNo.style.top = `${y}px`;
+  });
+
+  document.getElementById("boton-si").addEventListener("click", () => {
+    alert("¡Yo también te quiero muchísimo! ❤️🥰");
+  });
+</script>
+
+
+</body>
+</html>
